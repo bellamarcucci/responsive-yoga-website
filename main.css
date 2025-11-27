@@ -1,6 +1,66 @@
+:root{
+    --bg-color: #F5F0FF;
+    --text-color: #4B3E65;
+    --title-color: #220953;
+    --border-color: #F5F0FF;
+}
+
+/* Dark mode */
+.theme-toggle:checked ~ .full-page-content {
+    --bg-color: #14092A;
+    --text-color: #A094B8;
+    --title-color: #D1C0F1;
+    --border-color: #14092A;
+}
+
 *{
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
     margin: 0px;
     padding: 0px;
     font-family: "Poppins", sans-serif;
+}
+
+.toggle-mode {
+  display: none;
+}
+
+.full-page-content{
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 7.5rem 10rem;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+
+header {
+  border-bottom: 1px;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+
+
+main {
+  max-width: 700px;
+}
+
+.theme-switch {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+  background-color: var(--card-bg);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.theme-switch .sun,
+.theme-switch .moon {
+  pointer-events: none;
 }
