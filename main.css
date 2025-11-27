@@ -18,10 +18,13 @@
     margin: 0px;
     padding: 0px;
     font-family: "Poppins", sans-serif;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-.toggle-mode {
-  display: none;
+.theme-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .full-page-content{
@@ -29,38 +32,106 @@
     background-color: var(--bg-color);
     color: var(--text-color);
     padding: 7.5rem 10rem;
-    transition: background-color 0.5s ease, color 0.5s ease;
 }
-
-
-header {
-  border-bottom: 1px;
-  padding-bottom: 1rem;
-  margin-bottom: 2rem;
-}
-
 
 
 main {
-  max-width: 700px;
+    max-width: 700px;
 }
 
 .theme-switch {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: 999px;
-  padding: 0.3rem 0.8rem;
-  cursor: pointer;
-  background-color: var(--card-bg);
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 1.2rem;
+    position: absolute;
+    top: 2.5rem;
+    right: 10rem;
+    cursor: pointer;
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 1.2rem;
+    z-index: 100;
+
+}
+
+
+.theme-toggle:checked ~ .theme-switch {
+    background-color: #14092A;
+    color: #A094B8;
 }
 
 .theme-switch .sun,
 .theme-switch .moon {
-  pointer-events: none;
+    pointer-events: none;
 }
+
+/* Hides inactive icon */
+.icon-moon {
+    display: none;
+}
+
+.icon-sun {
+    display: inline-block;
+}
+
+.theme-toggle:checked ~ .theme-switch .icon-sun {
+    display: none;
+}
+
+.theme-toggle:checked ~ .theme-switch .icon-moon {
+     display: inline-block;
+}
+
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2.5rem 10rem; 
+    z-index: 10;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+header nav a:first-child img {
+    height: 20px;
+    width: auto;
+}
+
+header nav ul {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    margin-right: auto;
+    margin-left: 20rem;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+}
+header nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #FF52AF;
+    font-weight: 600;
+    transition: color 0.5s ease;
+
+}
+
+header nav ul li a.currant {
+    font-weight: 700;
+    color: var(--title-color); 
+}
+
+
+
