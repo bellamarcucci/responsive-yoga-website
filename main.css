@@ -150,15 +150,15 @@ main {
     padding-bottom: 8rem;
 }
 
-/* Container do lado esquerdo (Título, Texto, Botão) */
+
 .title {
-    max-width: 45%; /* Limita a largura para o texto */
+    max-width: 45%;
     position: relative;
-    z-index: 2; /* Garante que o texto fique acima do fundo e da imagem */
+    z-index: 2;
 }
 
 .hero-title {
-    font-family: "Lora", serif; /* Fonte estilizada */
+    font-family: "Lora", serif;
     font-size: 5rem;
     line-height: 1.3;
     color: var(--title-color);
@@ -167,7 +167,6 @@ main {
 }
 
 .gradient-tag {
-    /* Estilo para a tag 'Yoga' com gradiente */
     background: var(--gradient-color);
     color: white;
     padding: 0.5rem 0.7rem;
@@ -179,6 +178,33 @@ main {
     font-family: "lora";
     padding-bottom: 10px;
     transform: rotate(10deg);
+}
+
+.gradient-tag:hover {
+   display: inline-block;
+  animation: tiltDrop 2.5s ease-in-out infinite;
+  transform-origin: top center; /* rotation point */
+}
+
+@keyframes tiltDrop {
+  0% {
+    transform: rotate(0deg) translateY(0px);
+  }
+  20% {
+    transform: rotate(-6deg) translateY(1px);
+  }
+  40% {
+    transform: rotate(4deg) translateY(-2px);
+  }
+  60% {
+    transform: rotate(-10deg) translateY(4px);
+  }
+  80% {
+    transform: rotate(2deg) translateY(-1px);
+  }
+  100% {
+    transform: rotate(0deg) translateY(0px);
+  }
 }
 
 .normal-text {
@@ -209,7 +235,7 @@ main {
 
 .main-img {
     position: absolute;
-    top: -1rem;
+    top: 2rem;
     right: 0;
     width: 50%;
     height: auto;
@@ -237,7 +263,6 @@ main {
     left: -3rem;
 }
 
-/* Dados Estatísticos (300+ Yoga Class, 40+ Participants) */
 .hero-data-1,
 .hero-data-2 {
     position: absolute;
@@ -256,201 +281,82 @@ main {
 }
 
 .hero-data-1 {
-    bottom: 0;
-    left: 0; /* Posição conforme o mockup */
+    bottom: -9rem;
+    left: 0;
 }
 
 .hero-data-2 {
-    bottom: 0;
-    left: 10rem; /* Posição conforme o mockup, com espaçamento do primeiro */
-}
-
-
-/* --- Seção 2: List Box (Meio da Página) --- */
-.list-box-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20rem 10rem;
-    /* Ajuste de margem ou padding para posicionar o elemento corretamente */
-    margin-top: 10rem; /* Empurra para baixo */
+    bottom: -9rem;
+    left: 10rem;
 }
 
 .list-box {
-    /* Estilo para o box com a imagem de ioga e o texto. 
-    A imagem e o texto parecem estar em posições não lineares (absolute ou float), 
-    mas vamos estruturar o container principal aqui. */
-    position: relative;
-    max-width: 80%; /* Ajuste o tamanho do container se necessário */
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
+    margin-top: 18rem;
     gap: 2rem;
-    top: 20rem;
 }
-
-.list-box-no {
-    font-size: 5rem;
-    font-weight: 700;
-    color: #f0e6ff; /* Cor muito clara para o número de fundo */
-    position: absolute;
-    top: -3rem;
-    left: -3rem;
-    z-index: 0;
-}
-
-.list-box img:first-of-type {
-    width: 300px; /* Largura da imagem da pessoa fazendo a pose */
-    height: auto;
-    z-index: 1;
-}
-
-.list-box h3 {
-    max-width: 400px;
-    font-size: 1.125rem;
-    color: var(--text-color);
-    line-height: 1.6;
-    position: relative;
-}
-
-.list-box h3 img {
-    /* Imagem de estrelas de decoração ao lado do texto */
-    position: absolute;
-    top: -1.5rem;
-    right: -2rem;
-    width: 50px;
+.list-box-no{
+    font-family: "Lora", serif;
+    font-size: 4rem;
+    color: var(--title-color);
+    font-weight: 400;
 }
 
 .btn-list-box {
-    /* O botão Next é um círculo com seta e um fundo decorativo */
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
     background: transparent;
     border: none;
     cursor: pointer;
-    font-weight: 500;
-    color: var(--text-color);
-    display: flex;
-    flex-direction: column; /* Coloca o texto em cima do círculo */
-    align-items: center;
-    position: relative;
-    padding: 1rem;
+
+    padding: 1.7rem 2.4rem;
+    font-size: 1.1rem;
+    flex: 0 0 auto;
 }
 
-.btn-list-box img {
-    /* Imagem de fundo Ellipse */
+.btn-list-box .ellipse-img {
     position: absolute;
-    width: 80px;
-    height: 80px;
-    z-index: 1;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 115%;
+    pointer-events: none;
+    z-index: 0;
 }
 
-.btn-list-box span {
-    /* Ícone de seta */
-    z-index: 2;
-    font-size: 1.5rem;
-    color: var(--title-color);
-    margin-top: 0.5rem;
-}
-
-
-/* --- Seção 3: Health Box (Fundo da Página) --- */
-.health-box {
-    padding: 5rem 0;
-    margin-top: 5rem; /* Espaço após a seção anterior */
-}
-
-.health-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.health-img {
+.btn-list-box .btn-text,
+.btn-list-box .material-symbols-outlined {
     position: relative;
-    width: 45%; /* Espaço para a imagem */
+    z-index: 1;
+    background: linear-gradient(90deg, #FF52AF 0%, #9F53FF 100%);
+    -webkit-background-clip: text;   /* Safari/Chrome */
+    color: transparent;
 }
 
-.health-img img:first-of-type {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Descrição de dados de saúde (Heart Rate e Free Courses) */
-.description-box-health-1,
-.description-box-health-2 {
-    position: absolute;
-    background-color: white; /* Fundo branco ou claro */
-    padding: 0.8rem 1rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    z-index: 3;
-}
-
-.description-box-health-1 {
-    top: 50%;
-    left: -5%; /* Posicionado à esquerda do homem */
-    transform: translateY(-50%);
-}
-
-.description-box-health-1 img {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    width: 20px;
-}
-
-.description-box-health-2 {
-    bottom: 10%;
-    right: -10%; /* Posicionado à direita/baixo da imagem */
-    align-items: center;
-}
-
-.description-text {
-    font-size: 0.9rem;
+.normal-text-list {
+    position: relative;
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 1.6;
     color: var(--text-color);
+    font-weight: 400;
 }
 
-.gradient-color-font {
-    font-size: 1.2rem;
-    font-weight: 700;
-    /* Aplicar o gradiente ao texto (requer webkit/propriedades adicionais para gradiente no texto) */
-    background: linear-gradient(90deg, #E664A3 0%, #A276E4 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent; /* Fallback */
+.list-star {
+    position: absolute;
+    top: -1.5rem;
+    left: -2rem;
+    width: 2.5rem;
+    pointer-events: none;
 }
 
-.health-data {
-    width: 45%; /* Espaço para o texto */
-}
+.health-box {
 
-.health-data h2 {
-    font-family: "Lora", serif;
-    font-size: 3rem;
-    color: var(--title-color);
-    margin-bottom: 1.5rem;
-}
-
-.health-data h3 {
-    margin-bottom: 2rem;
-}
-
-.health-btn {
-    background: linear-gradient(90deg, #E664A3 0%, #A276E4 100%);
-    color: white;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: transform 0.3s;
 }
