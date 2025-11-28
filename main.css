@@ -90,6 +90,75 @@ header {
 }
 
 /* Santiago part */
+/* ANYTIME CSS */
+
+/* FOLLOW US CSS */
+.follow-us-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    place-items: center;
+}
+.follow-us-content-container-1 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    place-items: center;
+    width: 80%;
+}
+.follow-us-content-container-1 img {
+    border: 8px solid #E5D9FD;
+    border-radius: 150px;
+    max-width: 280px;
+    max-height: 420px;
+}
+.follow-us-content-container-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    place-items: center;
+    width: 80%;
+    height: 100%;
+}
+.follow-us-content-container-2 img {
+    max-width: 500px;
+    max-height: 255px;
+    border: 8px solid #E5D9FD;
+    border-radius: 150px;
+}
+
+.Instagram-content-container {
+    display: flex;
+    place-items: center;
+    flex-direction: column;
+    gap: 35px;
+}
+.Instagram-content-container h3 {
+    text-align: center;
+    max-width: 450px;
+    font-family: 'Lora', serif;
+    font-weight: 400;
+    font-size: 60px;
+
+}
+.Instagram-content-container button {
+    border: none;
+    background: linear-gradient(90deg, #FF52AF, #9F53FF);    
+    border-radius: 40px;
+    min-width: 75px;
+    min-height: 75px;
+}
+.Instagram-content-container button a {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    place-items: center;
+    text-decoration: none;
+    color: white;
+}
+.Instagram-content-container button a img {
+    max-width: 20px;
+    max-height: 20px;
+    border: none;
+    border-radius: none;
+}
 /* FORM CSS */
 .newsletter-form-container{
 
@@ -157,6 +226,7 @@ p.newsletter-form-style {
     0 4px 10px rgba(255, 82, 175, 0.4),
     0 8px 20px rgba(159, 83, 255, 0.4);
     border-radius: 24px;
+    cursor: pointer;
 }
 .submit-btn-container input {
     background-color: transparent;
@@ -165,6 +235,7 @@ p.newsletter-form-style {
     margin-left: 70px;
     max-height: 30px;
     color: white;
+    cursor: pointer;
 }
 .submit-btn-container img{ 
     width: auto;
