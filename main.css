@@ -26,6 +26,7 @@
     position: absolute;
     opacity: 0;
     pointer-events: none;
+    z-index: 105;
 }
 
 .full-page-content{
@@ -67,19 +68,19 @@ main {
 
 /* Hides inactive icon */
 .icon-moon {
-    display: none;
-}
-
-.icon-sun {
     display: inline-block;
 }
 
-.theme-toggle:checked ~ .theme-switch .icon-sun {
+.icon-sun {
     display: none;
 }
 
+.theme-toggle:checked ~ .theme-switch .icon-sun {
+    display: inline-block;
+}
+
 .theme-toggle:checked ~ .theme-switch .icon-moon {
-     display: inline-block;
+     display: none;
 }
 
 
@@ -132,6 +133,34 @@ header nav ul li a:hover {
 header nav ul li a.currant {
     font-weight: 700;
     color: var(--title-color); 
+}
+
+/* Menu bt only for mobile */
+#menu-toggle {
+    display: none;
+}
+
+/* 2. Estiliza o ícone do menu (o label) */
+.menu-icon {
+    display: none; /* Esconde no Desktop */
+    cursor: pointer;
+    font-size: 2.5rem; /* Tamanho do ícone */
+    color: var(--title-color); /* Cor do ícone */
+    z-index: 101; /* Garante que fique acima do menu aberto */
+    user-select: none;
+}
+
+/* Regras de alternância dos ícones */
+.menu-icon .icon-close {
+    display: none;
+}
+
+#menu-toggle:checked ~ .menu-icon .icon-close {
+    display: block;
+}
+
+#menu-toggle:checked ~ .menu-icon .icon-menu {
+    display: none;
 }
 
 main {
@@ -501,4 +530,172 @@ main {
   100% {
     transform: rotate(0deg) translateY(0px);
   }
+}
+/* --- MEDIA QUERIES PARA MOBILE --- */
+@media (max-width: 768px) {
+
+    /* --- LAYOUT GERAL --- */
+    .full-page-content {
+        padding: 2rem 1.5rem; /* Ajusta padding geral */
+        overflow-x: hidden; /* Evita rolagem lateral */
+    }
+
+    /* --- HEADER E NAVEGAÇÃO --- */
+    header {
+        position: flex; /* Fixa o menu no topo */
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1.5rem 1.5rem;
+        background-color: var(--bg-color); /* Fundo sólido para não ver o conteúdo atrás */
+        z-index: 100;
+    }
+
+    header nav {
+        /* position: relative; */
+        display: flex;
+        justify-content: space-between; /* Logo na esq, Ícone na dir */
+        align-items: center;
+        width: 100%;
+        z-index: 110 !important;
+    }
+
+    header nav a {
+        display: flex;
+        align-items: center;
+    }
+
+    /* Mostra o ícone do menu no mobile */
+    .menu-icon {
+        display: flex;
+        align-items: flex-end;
+        order: 2; /* Garante que fique à direita */
+    }
+
+    /* MENU LATERAL (A Gaveta) */
+    header nav ul {
+        position: absolute;
+        top: 0;
+        right: -100%; /* Começa escondido fora da tela */
+        width: 60%;
+        height: 70vh;
+        background-color: var(--bg-color);
+        flex-direction: column;
+        justify-content: flex-start; /* Centraliza itens verticalmente */
+        align-items: stretch;
+        padding: 3rem;
+        padding-top: 9rem;
+        margin: 0;
+        gap: 2rem;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        transition: right 0.4s ease-in-out; /* Animação suave */
+        /* z-index: 110 !important; */
+    }
+
+    /* AÇÃO: Abre o menu */
+    #menu-toggle:checked ~ .menu-icon {
+        position: flex; /* Fixa o ícone de fechar */
+        right: 1.5rem;
+        top: 1.2rem;
+    }
+
+    #menu-toggle:checked ~ .theme-toggle {
+    visibility: hidden;
+    opacity: 0;
+    }
+
+    #menu-toggle:checked ~ ul {
+        right: 0; /* Traz o menu para a tela */
+    }
+
+    header nav ul li a {
+        font-size: 1rem; /* Aumenta fonte dos links no mobile */
+        font-weight: 300;
+    }
+
+    /* --- AJUSTES DO TEMA (SOL/LUA) --- */
+    .theme-switch {
+        position: flex; /* Fixa também */
+        top: 1.5rem; 
+        right: 4.5rem; /* Fica à esquerda do ícone do menu */
+        font-size: 1.2rem;
+        z-index: 105 !important;
+    }
+
+    /* --- AJUSTES DE CONTEÚDO (HERO) --- */
+    main {
+        padding-top: 6rem; /* Espaço para não ficar debaixo do header fixo */
+    }
+
+    .hero-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 4rem;
+    }
+
+    .title {
+        max-width: 100%;
+        order: 2;
+    }
+
+    .main-img {
+        position: static; /* Remove absolute para fluir na coluna */
+        width: 80%;
+        max-width: 350px;
+        margin: 0 auto 2rem auto;
+        order: 1;
+    }
+
+    .hero-title {
+        font-size: 3rem; /* Título menor no mobile */
+    }
+
+    .gradient-tag {
+        font-size: 3rem;
+        transform: none;
+    }
+    
+    .gradient-tag:hover {
+        animation: none;
+    }
+
+    .hero-data-1, .hero-data-2 {
+        position: static; /* Remove absolute */
+        flex-direction: row;
+        gap: 1rem;
+        margin-top: 1rem;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .hero-data-1 { margin-bottom: 0.5rem; }
+    
+    .list-box {
+        margin-top: 2rem;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .box-img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .health-container {
+        flex-direction: column-reverse;
+    }
+    
+    .health-img {
+        max-width: 100%;
+    }
+    
+    .health-data {
+        padding-left: 0;
+        text-align: center;
+    }
+    
+    .health-data h2 {
+        font-size: 2.5rem;
+    }
 }
