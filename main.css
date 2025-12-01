@@ -10,6 +10,25 @@ html, body {
     overflow-x: hidden;
 }
 
+h2{
+    font-size: 2.5rem;
+    font-weight: 400;
+    text-align: center;
+    justify-content: center;
+    color: var(--title-color);
+    font-family: "Lora", serif;
+}
+
+h3{
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+    justify-content: center;
+    color: var(--text-color);
+    font-family: "Poppins", serif;
+}
+
+
 /* Dark mode */
 .theme-toggle:checked ~ .full-page-content {
     --bg-color: #14092A;
@@ -56,13 +75,8 @@ main {
     gap: 0.3rem;
     font-size: 1.2rem;
     z-index: 100;
+    transition: background-color 0.5s ease, color 0.5s ease;
 
-}
-
-
-.theme-toggle:checked ~ .theme-switch {
-    background-color: #14092A;
-    color: #A094B8;
 }
 
 .theme-switch .sun,
@@ -79,11 +93,11 @@ main {
     display: none;
 }
 
-.theme-toggle:checked ~ .theme-switch .icon-sun {
+.theme-toggle:checked ~ .full-page-content .theme-switch .icon-sun {
     display: inline-block;
 }
 
-.theme-toggle:checked ~ .theme-switch .icon-moon {
+.theme-toggle:checked ~ .full-page-content .theme-switch .icon-moon {
      display: none;
 }
 
@@ -331,10 +345,7 @@ main {
     height: auto;
 }
 .list-box-no{
-    font-family: "Lora", serif;
-    font-size: 4rem;
-    color: var(--title-color);
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .btn-list-box {
@@ -568,11 +579,11 @@ main {
         width: 100%;
         padding: 1.5rem 1.5rem;
         background-color: var(--bg-color);
-        z-index: 100;
+        /* z-index: 100; */
     }
 
     header nav {
-        display: flex;
+        display: fixed;
         justify-content: space-between;
         align-items: center;
         width: 100%;
@@ -605,13 +616,23 @@ main {
         margin: 0;
         gap: 2rem;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-        transition: 0.4s ease-in-out;
+        transition: 0.5s ease-in-out;
         transform: translateX(100%); 
+        z-index: 100;
     }
 
-    #menu-toggle:checked ~ .theme-toggle {
-        visibility: hidden;
+    header nav ul li:first-child a {
+        font-weight: 400;
+        background: linear-gradient(90deg, #FF52AF 0%, #9F53FF 100%);
+        -webkit-background-clip: text;   /* Safari/older Chrome */
+        background-clip: text; /* Modern browsers */
+        color: transparent;
+    }
+
+    #menu-toggle:checked ~ .theme-switch {
         opacity: 0;
+        pointer-events: none;
+        /* transition: opacity 0.2s ease; */
     }
 
     #menu-toggle:checked ~ ul {
@@ -624,11 +645,13 @@ main {
     }
 
     .theme-switch {
-        position: absolute;
-        top: 1.5rem; 
-        right: 4.5rem;
+        position: relative;
+        background-color: transparent;
+        margin-left: auto;
         font-size: 1.2rem;
-        z-index: 101 !important;
+        top: 0;
+        right: 1rem;
+        z-index: 90;
     }
 
     main {
@@ -666,7 +689,7 @@ main {
         transform: none;
         white-space: nowrap;
         display: inline-block;
-        font-family: "lora";
+        font-family: "Lora";
         transform: rotate(10deg);
     }
     
