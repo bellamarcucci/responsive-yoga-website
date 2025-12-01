@@ -188,12 +188,12 @@ p.anytime-box {
 .any-time-img-1-style {
     position: absolute;
     z-index: 1;
-    border: 8px solid  #F5F0FF;
+    border: 8px solid  var(--bg-color);
     border-radius: 150px;
 }
 
 .any-time-img-2-style {
-    border: 8px solid  #F5F0FF;
+    border: 8px solid  var(--bg-color);
     border-radius: 150px;
     position: absolute;
     
@@ -490,10 +490,128 @@ h5.section-footer-style {
         justify-content: flex-end;
     }
 }
+/* ANYTIME QUERY */
+@media (max-width: 768px) {
+    .anytime-container {
+        display: flex;          /* cambiamos de grid a flex */
+        flex-direction: column; /* elementos apilados verticalmente */
+        align-items: center;    /* centramos contenido horizontalmente */
+        gap: 40px;              /* separación entre elementos */
+        padding: 20px;
+        height: 900px;       /* opcional, para no forzar altura */
+    }
+    .anytime-content-container-1 {
+        width: 100%;
+        padding: 0px;  
+    }
+    .anytime-content-container-1 h3 {
+        width: 100%;
+        text-align: center;
+        font-size: 45px;
+    }
+    .anytime-content-container-1 p {
+        width: 100%;
+        font-size: 19px;
+        text-align: center;
+    }
+    .get-started-btn-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .get-started-btn {
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        height: 70px;
+        border-radius: 35px;
+    }
+    .get-started-btn p{
+        width: 70%;
+    }
+    .anytime-content-container-2 {
+        width: 100%;
+    }
+    .anytime-img-container-1 img{
+        max-width: 400px;
+    }
+    .anytime-img-container-2 img{
+        max-width: 400px;
+        top: 27%;
+    }
+    .anytime-box-1 {
+        left: 110%;
+    }
+}
+@media (max-width: 480px) { 
+    .anytime-img-container-1 img{
+        max-width: 300px;
+    }
+    .anytime-img-container-2 img{
+        max-width: 300px;
+        top: 20%;
+    }
+    .anytime-box-1 {
+        left: 65%;
+    }
+    .anytime-box-2 {
+        right: 20%;
+        margin-top: 170px;
+    }    
+}
 /* FOLLOW US MEDIA QUERY */
+/* FOLLOW US CONTAINER 1 */
+@media (max-width: 768px) {
+    .follow-us-content-container-1 {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "content content"
+            "img1 img2";
+        column-gap: 20px;
+        row-gap: 30px;
+        min-height: 700px;
+    }
+
+    .follow-us-content-container-1 > img:nth-child(1) {
+        grid-area: img1;
+    }
+
+    .follow-us-content-container-1 > img:nth-child(3) {
+        grid-area: img2;
+        margin-top: 80px;
+    }
+
+    .follow-us-content-container-1 > .Instagram-content-container {
+        grid-area: content;
+    }
+    .follow-us-content-container-1 img {
+        height: 300px;
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 480px) { 
+    .follow-us-content-container-1 img {
+        max-height: 250px;
+    }
+    .Instagram-content-container h3 {
+        font-size: 40px;
+    }
+    .Instagram-content-container button {
+        width: 120px;
+        height: 120px;
+        border-radius: 60px;
+    }
+    .Instagram-content-container a {
+        font-size: 20px;
+    }
+}
+/* FOLLOW US CONTAINER 2 */
 @media (max-width: 1368px) {
     .follow-us-container {
-        height: 1700px;
+        max-height: 1200px;
         gap: 50px;
     }
     .follow-us-content-container-2 {
@@ -501,6 +619,7 @@ h5.section-footer-style {
         flex-direction: column;
         padding: 15px;        
         width: 100%;
+        max-height: 550px;
     }
     .follow-us-content-container-2 img {
         max-width: 550px;
@@ -516,14 +635,20 @@ h5.section-footer-style {
     }
 }
 @media (max-width: 786px) {
+    .follow-us-container {
+    max-height: 1300px;
+    gap: 20px;
+    }
+
     .follow-us-content-container-2 img {
-        max-width: 320px;
+        max-width: 380px;
         max-height: auto;
-    }   
+    }
+       
 }
 @media (max-width: 480px) {
     .follow-us-content-container-2 img {
-        max-width: 270px;
+        max-width: 300px;
         max-height: auto;
     }
 }
