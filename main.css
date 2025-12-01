@@ -915,7 +915,38 @@ p.anytime-box {
     position: absolute;
     
 }
+/* ANYTIME ANIMATION */
+.anytime-box-1 img,
+.anytime-box-1 p,
+.anytime-box-2 img,
+.anytime-box-2 p {
+    display: inline-block;
+    transform-origin: center;
+    opacity: 1;
+    transform: scale(1);
+}
 
+.anytime-box-1:hover img,
+.anytime-box-1:hover p,
+.anytime-box-2:hover img,
+.anytime-box-2:hover p {
+    animation: scaleHover 1s cubic-bezier(.2,.9,.2,1) forwards;
+}
+
+@keyframes scaleHover {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.06);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 /* FOLLOW US CSS */
 .follow-us-container {
     display: grid;
@@ -1518,3 +1549,4 @@ h5.section-footer-style {
         padding-left: 0px;
     }
 }
+
