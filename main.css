@@ -531,30 +531,45 @@ main {
     transform: rotate(0deg) translateY(0px);
   }
 }
-/* --- MEDIA QUERIES PARA MOBILE --- */
+/* --- MEDIA QUERIES FOR MOBILE --- */
 @media (max-width: 768px) {
 
-    /* --- LAYOUT GERAL --- */
     .full-page-content {
-        padding: 2rem 1.5rem; /* Ajusta padding geral */
-        overflow-x: hidden; /* Evita rolagem lateral */
+        padding: 2rem 1.5rem;
+        overflow-x: hidden;
     }
 
-    /* --- HEADER E NAVEGAÇÃO --- */
+    h2{
+        font-size: 2.5rem;
+        font-weight: 400;
+        text-align: center;
+        justify-content: center;
+        color: var(--text-color);
+        font-family: "Lora", serif;
+    }
+
+    h3{
+        font-size: 1rem;
+        font-weight: 400;
+        text-align: center;
+        justify-content: center;
+        color: var(--text-color);
+        font-family: "Poppins", serif;
+    }
+
     header {
-        position: flex; /* Fixa o menu no topo */
+        position: flex;
         top: 0;
         left: 0;
         width: 100%;
         padding: 1.5rem 1.5rem;
-        background-color: var(--bg-color); /* Fundo sólido para não ver o conteúdo atrás */
+        background-color: var(--bg-color);
         z-index: 100;
     }
 
     header nav {
-        /* position: relative; */
         display: flex;
-        justify-content: space-between; /* Logo na esq, Ícone na dir */
+        justify-content: space-between;
         align-items: center;
         width: 100%;
         z-index: 110 !important;
@@ -565,66 +580,61 @@ main {
         align-items: center;
     }
 
-    /* Mostra o ícone do menu no mobile */
+    
     .menu-icon {
         display: flex;
         align-items: flex-end;
-        order: 2; /* Garante que fique à direita */
+        order: 2;
     }
 
-    /* MENU LATERAL (A Gaveta) */
     header nav ul {
         position: absolute;
         top: 0;
-        right: -100%; /* Começa escondido fora da tela */
+        right: -100%;
         width: 60%;
         height: 70vh;
         background-color: var(--bg-color);
         flex-direction: column;
-        justify-content: flex-start; /* Centraliza itens verticalmente */
+        justify-content: flex-start;
         align-items: stretch;
         padding: 3rem;
         padding-top: 9rem;
         margin: 0;
         gap: 2rem;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-        transition: right 0.4s ease-in-out; /* Animação suave */
-        /* z-index: 110 !important; */
+        transition: right 0.4s ease-in-out;
     }
 
-    /* AÇÃO: Abre o menu */
     #menu-toggle:checked ~ .menu-icon {
-        position: flex; /* Fixa o ícone de fechar */
+        position: flex;
         right: 1.5rem;
         top: 1.2rem;
     }
 
     #menu-toggle:checked ~ .theme-toggle {
-    visibility: hidden;
-    opacity: 0;
+        visibility: hidden;
+        opacity: 0;
     }
 
     #menu-toggle:checked ~ ul {
-        right: 0; /* Traz o menu para a tela */
+        right: 0;
     }
 
     header nav ul li a {
-        font-size: 1rem; /* Aumenta fonte dos links no mobile */
+        font-size: 1rem;
         font-weight: 300;
     }
 
-    /* --- AJUSTES DO TEMA (SOL/LUA) --- */
     .theme-switch {
-        position: flex; /* Fixa também */
+        position: absolute;
         top: 1.5rem; 
-        right: 4.5rem; /* Fica à esquerda do ícone do menu */
+        right: 4.5rem;
         font-size: 1.2rem;
         z-index: 105 !important;
     }
 
-    /* --- AJUSTES DE CONTEÚDO (HERO) --- */
     main {
-        padding-top: 6rem; /* Espaço para não ficar debaixo do header fixo */
+        padding-top: 6rem;
     }
 
     .hero-section {
@@ -636,51 +646,116 @@ main {
 
     .title {
         max-width: 100%;
+        max-height: fit-content;
         order: 2;
     }
 
     .main-img {
-        position: static; /* Remove absolute para fluir na coluna */
+        position: relative;
         width: 80%;
-        max-width: 350px;
-        margin: 0 auto 2rem auto;
-        order: 1;
+        margin: 15rem auto 4rem auto;
+
     }
 
     .hero-title {
-        font-size: 3rem; /* Título menor no mobile */
+        font-size: 3rem;
+        align-items: center;
+        text-align: center;
     }
 
     .gradient-tag {
         font-size: 3rem;
         transform: none;
+        white-space: nowrap;
+        display: inline-block;
+        font-family: "lora";
+        transform: rotate(10deg);
     }
     
     .gradient-tag:hover {
-        animation: none;
+        display: inline-block;
+        animation: tiltDrop 2.5s ease-in-out infinite;
+        transform-origin: top center;
     }
 
+    .aside-star,
+    .aside-circle {
+    position: absolute;
+    }
+
+    .aside-star {
+        top: 9rem;
+        left: 1rem;
+        transition: transform 0.6s ease-out;
+        transform-origin: center;
+    }
+
+    .aside-star img{
+        max-width: 3.5rem;
+    }
+
+    .aside-star:hover {
+        animation: starSpin 1.2s linear infinite;
+    }
+
+    .aside-circle {
+        top: 19.5rem;
+        left: 16rem;
+    }
+
+    .aside-circle img{
+        max-width: 1rem;
+    }
+
+   .title-btn {
+        min-height: 4rem;
+        min-width: 13rem;
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        left: 4rem;
+   }
+
     .hero-data-1, .hero-data-2 {
-        position: static; /* Remove absolute */
-        flex-direction: row;
-        gap: 1rem;
-        margin-top: 1rem;
+        position: absolute;
+        flex-direction: column;
+        gap: 0.5rem;
+        top: 28rem;
+        margin: 2rem auto 2rem 3rem;
         justify-content: center;
         text-align: center;
     }
-    
-    .hero-data-1 { margin-bottom: 0.5rem; }
     
     .list-box {
         margin-top: 2rem;
         flex-direction: column;
         text-align: center;
     }
+
+    .list-box-no{
+        position: absolute;
+        top: 73rem;
+        left: 0.5rem;
+        font-size: 2rem;
+    }
     
     .box-img {
-        width: 100%;
+        margin: 3rem auto 2rem 1rem;
+        position: relative;
+        left: 4.5rem;
+        width: 70%;
         max-width: 300px;
     }
+
+    .list-star{
+        left: -1rem;
+        top: -2rem;
+    }
+
+    .btn-list-box{
+        top: 3rem;
+    }
+    
 
     .health-container {
         flex-direction: column-reverse;
