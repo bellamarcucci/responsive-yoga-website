@@ -1423,6 +1423,15 @@ h5.section-footer-style {
         max-height: auto;
     }
 }
+@media (max-width: 480px) {
+    .follow-us-content-container-2 img {
+        max-width: 270px;
+    }
+    .follow-us-container {
+        max-height: 1150px;
+    }
+    
+}
 /* FORM MEDIA QUERY */
 @media (min-width: 878px) {
     
