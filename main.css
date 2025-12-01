@@ -6,6 +6,10 @@
     --gradient-color: linear-gradient(90deg, #FF52AF 0%, #9F53FF 100%);
 }
 
+html, body {
+    overflow-x: hidden;
+}
+
 /* Dark mode */
 .theme-toggle:checked ~ .full-page-content {
     --bg-color: #14092A;
@@ -572,14 +576,13 @@ main {
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        z-index: 110 !important;
+        /* z-index: 110; */
     }
 
     header nav a {
         display: flex;
         align-items: center;
     }
-
     
     .menu-icon {
         display: flex;
@@ -588,9 +591,9 @@ main {
     }
 
     header nav ul {
-        position: absolute;
+        position: fixed;
         top: 0;
-        right: -100%;
+        right: 0;
         width: 60%;
         height: 70vh;
         background-color: var(--bg-color);
@@ -602,13 +605,8 @@ main {
         margin: 0;
         gap: 2rem;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-        transition: right 0.4s ease-in-out;
-    }
-
-    #menu-toggle:checked ~ .menu-icon {
-        position: flex;
-        right: 1.5rem;
-        top: 1.2rem;
+        transition: 0.4s ease-in-out;
+        transform: translateX(100%); 
     }
 
     #menu-toggle:checked ~ .theme-toggle {
@@ -617,7 +615,7 @@ main {
     }
 
     #menu-toggle:checked ~ ul {
-        right: 0;
+        transform: translateX(0); 
     }
 
     header nav ul li a {
@@ -630,7 +628,7 @@ main {
         top: 1.5rem; 
         right: 4.5rem;
         font-size: 1.2rem;
-        z-index: 105 !important;
+        z-index: 101 !important;
     }
 
     main {
