@@ -1279,7 +1279,7 @@ h5.section-footer-style {
     }
     .anytime-content-container-1 p {
         width: 100%;
-        font-size: 19px;
+        font-size: 20px;
         text-align: center;
     }
     .get-started-btn-container {
@@ -1314,7 +1314,10 @@ h5.section-footer-style {
 @media (max-width: 480px) {
     .anytime-container {
         height: 900px;
-    } 
+    }
+    .anytime-content-container-1 p {
+        font-size: 16px;
+    }
     .anytime-img-container-1 img{
         max-width: 300px;
     }
